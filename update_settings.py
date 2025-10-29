@@ -73,7 +73,7 @@ async def update_settings():
         values = list(insert_fields.values())
 
         query = f"""
-            INSERT INTO azaisearch_evolve__sandbox_settings ({columns})
+            INSERT INTO azaisearch_evolve_sandbox_settings ({columns})
             VALUES ({placeholders})
             RETURNING update_id
         """
@@ -89,4 +89,5 @@ async def update_settings():
 
     except Exception as e:
         print(f"Database error: {e}")
+
         return jsonify({'error': str(e)}), 500
